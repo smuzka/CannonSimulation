@@ -269,6 +269,7 @@ const createUserHandler = (req, res) => {
         }).then((result) => {});
       }
     );
+    res.redirect("/login");
   }
 
   fetchData();
