@@ -5,48 +5,8 @@
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/notLogged.css" />
     <link rel="stylesheet" href="styles/game.css" />
-  </head>
-  <body class="body">
-    <div class="header">
-      <a href="../" class="logo">
-        <h1>Projekt Zaliczeniowy</h1>
-      </a>
-
-      <div class="buttons">
-        <a href="login" class="button login"> ZALOGUJ </a>
-        <a href="register" class="button register"> ZAREJESTRUJ </a>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="settings">
-        <h2>
-          Prędkość początkowa:
-          <span><input type="text" id="speed" value="10" /></span>
-        </h2>
-        <h2>
-          Grawitacja:
-          <span><input type="text" id="gravity" value="0.15" /></span>
-        </h2>
-      </div>
-
-      <h2>Kąt: <span id="shotAngle"></span> (rad)</h2>
-      <canvas
-        class="game"
-        id="myCanvas"
-        height="100"
-        style="border: 1px solid #000000"
-      >
-      </canvas>
-
-      <h3 class="tip">
-        Aby wystrzelić należy nacisnąć na ekran w białym prostkącie.
-      </h3>
-    </div>
-  </body>
-</html>
-
-<script>
+    
+    <script>
   width = "800";
   height = "500";
   const shotAngle = document.getElementById("shotAngle");
@@ -134,3 +94,46 @@
 
   Update();
 </script>
+    
+  </head>
+  <body class="body">
+    <div class="header">
+      <a href="../" class="logo">
+        <h1>Projekt Zaliczeniowy</h1>
+      </a>
+
+      <div class="buttons">
+        <a href="login" class="button login"> ZALOGUJ </a>
+        <a href="register" class="button register"> ZAREJESTRUJ </a>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="settings">
+        <h2>
+          Prędkość początkowa:
+          <span><input type="text" id="speed" value="10" /></span>
+        </h2>
+        <h2>
+          Grawitacja:
+          <span><input type="text" id="gravity" value="0.15" /></span>
+        </h2>
+      </div>
+
+      <h2>Kąt: <span id="shotAngle"></span> (rad)</h2>
+      <canvas
+        class="game"
+        id="myCanvas"
+        height="100"
+        style="border: 1px solid #000000"
+      >
+      </canvas>
+
+      <h3 class="tip">
+        Aby wystrzelić należy nacisnąć na ekran w białym prostkącie.
+      </h3>
+    </div>
+  </body>
+</html>
+
+
