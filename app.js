@@ -17,6 +17,6 @@ app.use(cookieParser());
 var http = require("http");
 
 var routes = require("./routes")(app);
-http.createServer(app).listen(5500, function () {
+http.createServer(app).listen(80, function () {
   console.log("Express server listening on port " + 5500);
 });
