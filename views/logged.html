@@ -6,7 +6,60 @@
     <link rel="stylesheet" href="styles/login.css" />
     <link rel="stylesheet" href="styles/profile.css" />
     <link rel="stylesheet" href="styles/game.css" />
-    
+      
+  </head>
+  <body class="body">
+    <div class="header">
+      <a href="../" class="logo">
+        <h1>Projekt Zaliczeniowy</h1>
+      </a>
+
+      <div class="buttons">
+        <a href="logout" class="button login"> WYLOGUJ </a>
+      </div>
+    </div>
+
+    <div class="profileContent">
+      <div class="profileCard">
+        <div>
+          <h2>Nazwa używkownika: <span class="name" id="name"></span></h2>
+        </div>
+      </div>
+
+      <form class="settings">
+        <h2>
+          Prędkość początkowa:
+          <span><input type="text" id="speed" value="10" /></span>
+        </h2>
+        <h2>
+          Grawitacja:
+          <span><input type="text" id="gravity" value="0.15" /></span>
+        </h2>
+
+        <input
+          type="button"
+          class="button login"
+          value="ZAPISZ"
+          onclick="setParameters()"
+        />
+      </form>
+
+      <h2>Kąt: <span id="shotAngle"></span> (rad)</h2>
+      <canvas
+        class="game"
+        id="myCanvas"
+        height="100"
+        style="border: 1px solid #000000"
+      >
+      </canvas>
+
+      <h3 class="tip">
+        Aby wystrzelić należy nacisnąć na ekran w białym prostkącie.
+      </h3>
+    </div>
+  </body>
+</html>
+
     <script>
   width = "800";
   height = "500";
@@ -138,58 +191,3 @@
     });
   };
 </script>
-    
-  </head>
-  <body class="body">
-    <div class="header">
-      <a href="../" class="logo">
-        <h1>Projekt Zaliczeniowy</h1>
-      </a>
-
-      <div class="buttons">
-        <a href="logout" class="button login"> WYLOGUJ </a>
-      </div>
-    </div>
-
-    <div class="profileContent">
-      <div class="profileCard">
-        <div>
-          <h2>Nazwa używkownika: <span class="name" id="name"></span></h2>
-        </div>
-      </div>
-
-      <form class="settings">
-        <h2>
-          Prędkość początkowa:
-          <span><input type="text" id="speed" value="10" /></span>
-        </h2>
-        <h2>
-          Grawitacja:
-          <span><input type="text" id="gravity" value="0.15" /></span>
-        </h2>
-
-        <input
-          type="button"
-          class="button login"
-          value="ZAPISZ"
-          onclick="setParameters()"
-        />
-      </form>
-
-      <h2>Kąt: <span id="shotAngle"></span> (rad)</h2>
-      <canvas
-        class="game"
-        id="myCanvas"
-        height="100"
-        style="border: 1px solid #000000"
-      >
-      </canvas>
-
-      <h3 class="tip">
-        Aby wystrzelić należy nacisnąć na ekran w białym prostkącie.
-      </h3>
-    </div>
-  </body>
-</html>
-
-
