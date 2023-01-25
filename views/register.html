@@ -4,7 +4,50 @@
     <title>Jakub Smuga</title>
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/login.css" />
-    
+
+    <script>
+      var modal;
+      addEventListener("load", (event) => {});
+
+      onload = (event) => {
+        modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function () {
+          modal.style.display = "none";
+        };
+      };
+
+      const register = () => {
+        fetch("/newUser", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: username.value,
+            password: password.value,
+          }),
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            if (data.modal === "true") {
+              modal.style.display = "block";
+            }
+          })
+          .catch((err) => {
+            window.location.href = "login";
+          });
+      };
+
+      addEventListener("click", (event) => {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      });
+    </script>
   </head>
   <body class="body">
     <div class="header">
@@ -22,7 +65,7 @@
       </div>
 
       <form id="loginForm" class="form">
-        <h1 class="title">ZAREJESTRUJ</h2>
+        <h1 class="title">ZAREJESTRUJ</h1>
 
         <label for="username" class="label">NAZWA</label>
         <input id="username" name="username" type="text" class="input" />
@@ -36,50 +79,7 @@
           value="ZAREJESTRUJ"
           onclick="register()"
         />
-
-        <!-- <input type="submit" value="ZAREJESTRUJ" class="submit" /> -->
       </form>
     </div>
   </body>
 </html>
-
-
-    <script>
-    var modal = document.getElementById("myModal");
-    var span = document.getElementsByClassName("close")[0];
-
-  const register = () => {
-    fetch("/newUser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username.value,
-        password: password.value,
-      }),
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        if(data.modal === 'true') {
-          modal.style.display = "block";
-        }
-      }). catch(err => {
-        window.location.href = "login";
-      });
-
-  }
-
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-addEventListener("click", (event) => {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-});
-</script>
