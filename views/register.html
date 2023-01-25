@@ -4,45 +4,6 @@
     <title>Jakub Smuga</title>
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/login.css" />
-    <script>
-    var modal = document.getElementById("myModal");
-    var span = document.getElementsByClassName("close")[0];
-
-  const register = () => {
-    fetch("/newUser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username.value,
-        password: password.value,
-      }),
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        if(data.modal === 'true') {
-          modal.style.display = "block";
-        }
-      }). catch(err => {
-        window.location.href = "login";
-      });
-
-  }
-
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-addEventListener("click", (event) => {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-});
-</script>
     
   </head>
   <body class="body">
@@ -83,3 +44,42 @@ addEventListener("click", (event) => {
 </html>
 
 
+    <script>
+    var modal = document.getElementById("myModal");
+    var span = document.getElementsByClassName("close")[0];
+
+  const register = () => {
+    fetch("/newUser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username.value,
+        password: password.value,
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        if(data.modal === 'true') {
+          modal.style.display = "block";
+        }
+      }). catch(err => {
+        window.location.href = "login";
+      });
+
+  }
+
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+addEventListener("click", (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
+</script>
