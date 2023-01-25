@@ -1,0 +1,22 @@
+.profileContent {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 25px;
+  color: white;
+}
+
+.profileCard {
+  width: 80%;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+}
+
+.name {
+  color: white;
+  font-size: 1.7rem;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jakub Smuga</title>
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/login.css" />
+  </head>
+  <body class="body">
+    <div class="header">
+      <a href="../" class="logo">
+        <h1>Projekt Zaliczeniowy</h1>
+      </a>
+    </div>
+
+    <div class="content">
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Użytkownik o podanej nazwie już istnieje</p>
+        </div>
+      </div>
+
+      <form id="loginForm" class="form">
+        <h1 class="title">ZAREJESTRUJ</h2>
+
+        <label for="username" class="label">NAZWA</label>
+        <input id="username" name="username" type="text" class="input" />
+
+        <label for="password" class="label">HASLO</label>
+        <input id="password" name="password" type="password" class="input" />
+
+        <input
+          type="button"
+          class="submit"
+          value="ZAREJESTRUJ"
+          onclick="register()"
+        />
+
+        <!-- <input type="submit" value="ZAREJESTRUJ" class="submit" /> -->
+      </form>
+    </div>
+  </body>
+</html>
+
+
+<script>
+    var modal = document.getElementById("myModal");
+    var span = document.getElementsByClassName("close")[0];
+
+  const register = () => {
+    fetch("/newUser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username.value,
+        password: password.value,
+      }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        if(data.modal === 'true') {
+          modal.style.display = "block";
+        }
+      }). catch(err => {
+        window.location.href = "login";
+      });
+
+  }
+
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+addEventListener("click", (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
+</script>
